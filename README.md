@@ -2,6 +2,10 @@
 
 Memory is a simple, open-source note-taking application designed for minimalism and efficiency. The goal is to provide a straightforward interface for taking and organizing notes without unnecessary features that complicate the experience.
 
+![Home](./home-img.png)
+
+![Editor](./editor-img.png)
+
 ## Why Memory?
 
 When you think about it, almost anything on the web starts with a simple idea: an empty page that holds content. Yet, finding a simple, frictionless note-taking app has been a challenge. Over time, many apps have become bloated with features, making the act of writing down thoughts unnecessarily complex.
