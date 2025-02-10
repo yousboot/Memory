@@ -59,6 +59,35 @@ To install and run Memory, ensure you have Python installed on your system.
 
 The app will start running locally, allowing you to access it via your browser.
 
+## Running with Docker
+
+Alternatively, you can run Memory using Docker.
+
+1. Build the Docker image:
+
+   ```sh
+   docker build -t memory .
+   ```
+
+2. Run the Docker container:
+
+   ```sh
+   docker run -p 5000:5000 memory
+   ```
+
+Now, the app is running inside Docker, and you can access it at:
+
+```sh
+http://localhost:5000
+```
+
+or
+
+```sh
+http://127.0.0.1:5000
+
+```
+
 ## Contributing
 
 Memory is open-source, and contributions are welcome. If you have ideas or improvements, feel free to submit a pull request.
@@ -71,3 +100,7 @@ For feedback or contributions, reach out to me:
 - [GitHub](https://github.com/yousboot)
 
 Made with ❤️ by Youssef.
+
+```
+
+```
