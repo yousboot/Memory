@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Edit Note</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="/static/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/static/styles.css"
+      rel="stylesheet"
+    />
+    <script
+      src="/static/script.js"
+      defer
+    ></script>
+    <style>
+      #editor { font-family: "Didot", serif; font-size: 0.9rem;}
+      #editor h1, #editor h2 { font-family: "Leelawad", sans-serif; }
+      #editor pre code {
+        white-space: pre;
+        font-family: "Code", monospace;
+        font-size: 0.875rem;
+        background-color: black;
+        color: white;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="/static//github-dark.min.css"
+    />
+
+    <script src="/static//highlight.min.js"></script>
+
+    <script src="/static/standalone.js"></script>
+    <script src="/static/parser-html.js"></script>
+    <script src="/static/parser-babel.js"></script>
+    <script src="/static/parser-markdown.js"></script>
+  </head>
+  <body class="bg-custom-color text-gray-800 ">
+    <header class="header ">
+      <div class="flex">
+        <div class="w-1/6 py-16">
+          <div class="flex flex-col items-center">
+            <a href="/">
+              <span class="logo mb-14 mt-4">M</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex-1 w-4/6 relative">
+          <div class="max-w-5xl mx-[9rem] pt-24 flex flex-col">
+            <div class="sticky top-0 bg-custom-color z-50 flex flex-col">
+              <div class="flex justify-start mb-4 items-center w-full">
+                <div
+                  class="text-[2rem] -mt-6 ml-2 font-rodenregular text-gradient inline-block text-transparent bg-clip-text leading-tight"
+                >
+                  {{ title }}
+                </div>
+              </div>
+              <div class="flex flex-row justfy-between items-center">
+                <div
+                  class="gap-8 ml-2 items-center flex gap-2 w-full justify-start"
+                >
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('h1')"
+                  >
+                    <img
+                      src="/static/svg/title.svg"
+                      alt="Edit"
+                      class="w-6 h-6"
+                    />
+                  </button>
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('h2')"
+                  >
+                    <img
+                      src="/static/svg/header.svg"
+                      alt="Edit"
+                      class="w-7 h-7"
+                    />
+                  </button>
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('p')"
+                  >
+                    <img
+                      src="/static/svg/paragraph.svg"
+                      alt="Edit"
+                      class="w-5 h-5"
+                    />
+                  </button>
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('s')"
+                  >
+                    <img
+                      src="/static/svg/signature.svg"
+                      alt="Signature"
+                      class="w-5 h-5"
+                    />
+                  </button>
+
+                  <button
+                    class="tool-btn"
+                    onclick="document.getElementById('imageUpload').click()"
+                  >
+                    <img
+                      src="/static/svg/image.svg"
+                      alt="Upload Image"
+                      class="w-4 h-4"
+                    />
+                  </button>
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    accept="image/*"
+                    class="hidden"
+                    onchange="handleImageUpload(event)"
+                  />
+
+                  <button
+                    class="tool-btn"
+                    onclick="document.getElementById('videoUpload').click()"
+                  >
+                    <img
+                      src="/static/svg/video.svg"
+                      alt="Upload Video"
+                      class="w-5 h-5"
+                    />
+                  </button>
+                  <input
+                    type="file"
+                    id="videoUpload"
+                    accept="video/*"
+                    class="hidden"
+                    onchange="handleVideoUpload(event)"
+                  />
+
+                  <div class="relative">
+                    <button
+                      class="tool-btn"
+                      id="tableButton"
+                    >
+                      <img
+                        src="/static/svg/table.svg"
+                        alt="Insert Table"
+                        class="w-5 h-5 -mb-1"
+                      />
+                    </button>
+
+                    <!-- Table Grid Selector -->
+                    <div
+                      id="tableGrid"
+                      class="absolute z-50 hidden bg-white p-3 shadow-md rounded-lg grid grid-cols-10 gap-1"
+                      style="top: 2rem; left: 0; width: max-content;"
+                    ></div>
+                  </div>
+
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('code')"
+                  >
+                    <img
+                      src="/static/svg/code.svg"
+                      alt="Insert Code"
+                      class="w-6 h-6"
+                    />
+                  </button>
+
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('blockquote')"
+                  >
+                    <img
+                      src="/static/svg/quote.svg"
+                      alt="Edit"
+                      class="w-5 h-5"
+                    />
+                  </button>
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('checklist')"
+                  >
+                    <img
+                      src="/static/svg/checklist.svg"
+                      alt="Checklist"
+                      class="w-6 h-6"
+                    />
+                  </button>
+
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('ol')"
+                  >
+                    <img
+                      src="/static/svg/num-list.svg"
+                      alt="Edit"
+                      class="w-7 h-7"
+                    />
+                  </button>
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('ul')"
+                  >
+                    <img
+                      src="/static/svg/bullet-list.svg"
+                      alt="Edit"
+                      class="w-7 h-7"
+                    />
+                  </button>
+                  <button
+                    class="tool-btn"
+                    onclick="insertElement('delimiter')"
+                  >
+                    <img src="/static/svg/dots.svg" // Or any icon you prefer
+                    alt="Insert Delimiter" class="w-6 h-6" />
+                  </button>
+                </div>
+                <div
+                  id="btnContainer"
+                  class="flex gap-1 opacity-90 hover:opacity-50 items-center"
+                >
+                  <a
+                    id="goBack"
+                    href="/note/{{ note_id }}"
+                  >
+                    <img
+                      src="/static/svg/back.svg"
+                      alt="Go Back"
+                      class="w-7 h-7"
+                    />
+                  </a>
+                  <button
+                    id="saveButton"
+                    data-note-id="{{ note_id }}"
+                    class="rounded"
+                  >
+                    <img
+                      src="/static/svg/save.svg"
+                      alt="Save"
+                      class="w-7 h-7"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/6 ">
+          <div class="flex flex-col items-center">
+            <span class="logo"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="flex">
+      <div class="w-1/6 ">
+        <div class="flex flex-col items-center">
+          <span class="logo"></span>
+        </div>
+      </div>
+      <div class="w-4/6 ">
+        <div class="max-w-5xl mx-[9rem] flex flex-col">
+          <div
+            id="editor"
+            contenteditable="true"
+            class="focus:outline-none w-full min-h-[700px] py-6 px-2"
+          >
+            {{ content | safe }}
+          </div>
+        </div>
+
+        <!-- Text Formatting Toolbar Popup -->
+        <div
+          id="textToolbar"
+          class="absolute flex z-50 mt-1 gap-2 bg-white p-2 rounded-lg shadow-md hidden"
+        >
+          <button
+            onclick="toggleFormat('bold')"
+            class="px-2 py-1 hover:bg-gray-100 rounded"
+          >
+            <img
+              src="/static/svg/bold.svg"
+              alt="Bold"
+              class="w-5 h-5"
+            />
+          </button>
+          <button
+            onclick="toggleFormat('italic')"
+            class="px-2 py-1 hover:bg-gray-100 rounded"
+          >
+            <img
+              src="/static/svg/italic.svg"
+              alt="Italic"
+              class="w-6 h-6"
+            />
+          </button>
+          <button
+            onclick="toggleFormat('underline')"
+            class="px-2 py-1 hover:bg-gray-100 rounded"
+          >
+            <img
+              src="/static/svg/underline.svg"
+              alt="Underline"
+              class="w-6 h-6"
+            />
+          </button>
+          <button
+            onclick="toggleFormat('highlight')"
+            class="px-2 py-1 hover:bg-gray-100 rounded"
+          >
+            <img
+              src="/static/svg/highlight.svg"
+              alt="Highlight"
+              class="w-6 h-6"
+            />
+          </button>
+          <button
+            onclick="toggleFormat('link')"
+            class="px-2 py-1 hover:bg-gray-100 rounded"
+          >
+            <img
+              src="/static/svg/link.svg"
+              alt="Highlight"
+              class="w-6 h-6"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="w-1/6 py-10">
+        <div class="flex flex-col items-center">
+          <a href="/">
+            <span class="logo mb-14"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

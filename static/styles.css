@@ -1,0 +1,453 @@
+@font-face {
+  font-family: "Janna";
+  src: url("/static/fonts/Janna.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/static/fonts/Garamond.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FuturaBkBt";
+  src: url("/static/fonts/FuturaBkBt.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Madani";
+  src: url("/static/fonts/madani.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lovtony";
+  src: url("/static/fonts/Lovtony\ Script.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("/static/fonts/NYT/nyt-franklin-300-normal.woff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EuropaBold";
+  src: url("/static/fonts/Europa.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RodenBold";
+  src: url("/static/fonts/RodenBold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RodenRegular";
+  src: url("/static/fonts/RodenRegular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Didot";
+  src: url("/static/fonts/Merriweather-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Leelawad";
+  src: url("/static/fonts/HankenGrotesk-Bold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HackRegular";
+  src: url("/static/fonts/Hack-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HackItalic";
+  src: url("/static/fonts/Hack-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BiroScriptPlus";
+  src: url("/static/fonts/Handwrittening-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AmiriRegular";
+  src: url("/static/fonts/Amiri-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "AGaramondPro-Italic";
+  src: url("/static/fonts/AGaramondPro-Italic.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "code";
+  src: url("/static/fonts/Envy\ Code\ R.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "link";
+  src: url("/static/fonts/calibri-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font-link {
+  font-family: "link", sans-serif;
+}
+
+.font-code {
+  font-family: "code", serif;
+}
+
+.font-agaramondpro {
+  font-family: "AGaramondPro-Italic", serif;
+}
+
+.font-amiriregular {
+  font-family: "AmiriRegular", serif;
+}
+
+.font-biroscript {
+  font-family: "BiroScriptPlus", serif;
+}
+
+.font-hackregular {
+  font-family: "HackRegular", serif;
+}
+.font-hackitalic {
+  font-family: "HackItalic", serif;
+}
+
+.font-leelawad {
+  font-family: "Leelawad", serif;
+}
+
+.font-didot {
+  font-family: "Didot", serif;
+}
+
+.font-rodenregular {
+  font-family: "RodenRegular", sans-serif;
+}
+
+.font-rodenbold {
+  font-family: "RodenBold", sans-serif;
+}
+
+.font-janna {
+  font-family: "Janna", sans-serif;
+}
+
+.font-garamond {
+  font-family: "Garamond", serif;
+}
+
+.font-futurabkbt {
+  font-family: "FuturaBkBt", sans-serif;
+}
+
+.font-madani {
+  font-family: "Madani", sans-serif;
+}
+
+.font-lovtony {
+  font-family: "Lovtony", sans-serif;
+}
+
+.font-nexa {
+  font-family: "Nexa", sans-serif;
+}
+
+.font-europaBold {
+  font-family: "EuropaBold", sans-serif;
+}
+
+.logo {
+  font-family: "Lovtony", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari */
+}
+
+.bg-custom-sidebar {
+  background-color: #af937e;
+}
+
+.bg-custom-slidebar {
+  background-color: #f5f3f0;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.bg-custom-folder {
+  background-color: #eae5e3;
+}
+
+.bg-custom-content {
+  background-color: #f1f1ef;
+}
+
+.bg-custom-color {
+  background-color: #f5f3f0;
+}
+
+.bg-custom-color1 {
+  background-color: #f6f3f0;
+}
+
+.bg-custom-color2 {
+  background-color: #b7b4b1;
+}
+
+.bg-custom-color2:hover {
+  background-color: #7b7a77;
+}
+
+.bg-custom-color3 {
+  background-color: #7b7a77;
+}
+
+.bg-custom-color4 {
+  background-color: #2b2b2b;
+}
+
+.text-color2 {
+  color: #7b7a77;
+}
+
+.subtitle-color {
+  color: #2d1535;
+}
+
+.link-color {
+  color: #59186e;
+}
+
+.border-color {
+  color: #2d1535;
+}
+
+.bg-folder {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-grid {
+  background: url("/static/img/grid.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.tool-btn {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.tool-btn:hover {
+  background: #cbd5e1;
+}
+
+.popup {
+  background: white;
+  padding: 10px;
+  border: 1px solid gray;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.hidden {
+  display: none;
+}
+.input-field {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+.popup-btn {
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.prose {
+  font-family: "Garamond", serif;
+}
+.prose h1,
+.prose h2 {
+  font-family: "Madani", sans-serif;
+}
+.prose pre code,
+.prose table {
+  font-family: initial;
+}
+
+.cover-image {
+  width: 100%;
+  height: 150px; /* Adjust to desired height */
+  background-image: url("/static/img/cover.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px; /* Optional */
+}
+
+.note-title,
+.note-subtitle {
+  max-width: 450px;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+.note-subtitle {
+  white-space: normal; /* Allow subtitle to wrap to the next line */
+}
+
+.text-gradient {
+  background-image: linear-gradient(
+    to right,
+    #02487a,
+    /* green-200 */ #0f766e,
+    /* teal-700 */ #581c87 /* purple-900 */
+  );
+}
+
+.hljs {
+  background-color: transparent !important;
+}
+
+#goBack {
+  display: none;
+}
+#btnContainer:hover #goBack {
+  display: flex;
+}
+
+.checklist-checkbox {
+  border-radius: 7px;
+  width: 1.3rem;
+  height: 1.3rem;
+  appearance: none;
+  border: 1.5px solid #ccc;
+  background-color: white;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checklist-checkbox:checked {
+  background-color: #ccbfb3;
+  border-color: #ccbfb3;
+}
+
+.checklist-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
+
+.checklist-item span {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+#editor img {
+  max-width: 50%;
+  max-height: 50%;
+  display: block;
+  margin: 0;
+}
+
+.clickable-note {
+  display: block;
+  width: 200px;
+  padding: 1.25rem 1.5rem; /* py-5 => 1.25rem, px-6 => 1.5rem */
+  cursor: pointer;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: 0;
+  background: #f5f3f0;
+  z-index: 20;
+  overflow: visible;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 20px;
+  background: inherit;
+  filter: blur(3px);
+  z-index: -1;
+}
+
+.text-code {
+  white-space: pre-wrap;
+}
+
+.yellow-highlight {
+  background-color: #ffe25b;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Folder</title>
+    <link
+      href="/static/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto py-10">
+      <h1 class="text-3xl font-bold mb-8">Edit Folder</h1>
+      <form
+        action="{{ url_for('edit_folder', folder_id=folder_id) }}"
+        method="post"
+        class="space-y-4"
+      >
+        <div>
+          <label
+            class="block text-lg font-semibold"
+            for="name"
+          >
+            Folder Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value="{{ folder[0] }}"
+            required
+            class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
+          />
+        </div>
+        <div class="flex gap-4">
+          <button
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          >
+            Save Changes
+          </button>
+          <a
+            href="{{ url_for('index') }}"
+            class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600"
+          >
+            Cancel
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

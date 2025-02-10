@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>{{ title }}</title>
+    <link
+      href="/static/styles.css"
+      rel="stylesheet"
+    />
+    <link
+      href="/static/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      hljs.highlightAll();
+    </script>
+
+    <script
+      src="/static/script.js"
+      defer
+    ></script>
+    <style>
+      #editor { font-family: "Didot", serif; font-size: 0.9rem;}
+      #editor h1, #editor h2 { font-family: "Leelawad", sans-serif; }
+      #editor pre code {
+        white-space: pre;
+        font-family: "Code", monospace;
+        font-size: 0.875rem;
+        background-color: black;
+        color: white;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="/static//github-dark.min.css"
+    />
+
+    <script src="/static//highlight.min.js"></script>
+
+    <script src="/static/standalone.js"></script>
+    <script src="/static/parser-html.js"></script>
+    <script src="/static/parser-babel.js"></script>
+    <script src="/static/parser-markdown.js"></script>
+  </head>
+  <body class="bg-custom-color text-gray-800">
+    <div class="min-h-screen flex">
+      <div class="w-1/6 py-16">
+        <div class="flex flex-col items-center">
+          <a href="/">
+            <span class="logo mb-14">M</span>
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 w-4/6 flex justify-center">
+        <div class="w-full max-w-5xl mx-[9rem] pt-24 flex flex-col">
+          <div class="flex justify-between items-center w-full">
+            <div
+              class="text-[2rem] -mt-6 ml-2 font-rodenregular text-gradient inline-block text-transparent bg-clip-text leading-tight"
+            >
+              {{ title }}
+            </div>
+          </div>
+
+          <div class="flex flex-row justify-between items-center">
+            <div class="text-xl ml-2 mt-2 font-nexa subtitle-color opacity-90">
+              {{ subtitle }}
+            </div>
+            <a
+              href="{{ url_for('edit_note', note_id=note_id) }}"
+              class="px-4 mt-3 rounded "
+            >
+              <img
+                src="/static/svg/edit.svg"
+                alt="Edit"
+                class="w-5 h-5"
+              />
+            </a>
+          </div>
+
+          <hr class="w-1/2 border-t border-[#4b1d5b] opacity-40 my-4 ml-2" />
+
+          <div
+            id="editor"
+            contenteditable="false"
+            class="focus:outline-none w-full mt-8 min-h-[700px] py-3 px-2"
+          >
+            {{ content | safe }}
+          </div>
+        </div>
+      </div>
+      <div class="w-1/6 py-10">
+        <div class="flex flex-col items-center">
+          <a href="/">
+            <span class="logo mb-14"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
